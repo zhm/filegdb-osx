@@ -1,5 +1,13 @@
 ## FileGDB OGR Plugin
 
+### Simple Installation
+
+```sh
+curl -L -# https://github.com/zhm/filegdb-osx/blob/master/install\?raw\=true | sh
+```
+
+### Manual Installation
+
 Run the `install` command.
 
 Here's what `install` does:
