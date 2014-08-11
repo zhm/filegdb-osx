@@ -1,7 +1,7 @@
 ## Building the OGR plugin on Mac
 
 - Download the GDAL source
-- You will GCC 4.9 to build the plugin because the ESRI-distributed dylib plugin was compiled with GCC and it exports C++ symbols
+- You will need GCC 4.9 to build the plugin because the ESRI-distributed dylib plugin was compiled with GCC and it exports C++ symbols
 - run `configure` with the `--with-fgdb` switch to setup the global makefile config
 
 ```sh
