@@ -1,0 +1,23 @@
+include ../../../GDALmake.opt
+
+OBJ	=	FGdbDatasource.o FGdbDriver.o FGdbLayer.o FGdbUtils.o FGdbResultLayer.o
+
+CPPFLAGS	:=	-I../generic $(GDAL_INCLUDE) $(FGDB_INC) $(CPPFLAGS) -fno-rtti
+
+CC = '/usr/local/bin/gcc-4.9'
+CXX = '/usr/local/bin/gcc-4.9'
+
+default:	$(O_OBJ:.o=.$(OBJ_EXT))
+
+clean:
+	rm -f *.o $(O_OBJ)
+
+$(O_OBJ):	ogr_fgdb.h
+
+PLUGIN_SO	=	ogr_FileGDB.dylib
+
+plugin: $(PLUGIN_SO)
+
+$(PLUGIN_SO):	$(OBJ)
+	/usr/local/bin/gcc-4.9 -static-libgcc -dynamic $(LNK_FLAGS) $(OBJ) $(CONFIG_LIBS_INS) $(EXTRA_LIBS) $(FGDB_INC) $(FGDB_LIB) -L/usr/local/Cellar/gcc49/4.9-20131020/gcc/lib/ -fno-rtti -lpthread -ldl -lobjc -lFileGDBAPI -lfgdbunixrtl $(EXTRA_GDAL_LIBS) -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace \
+		-o $(PLUGIN_SO)

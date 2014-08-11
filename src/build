@@ -1,0 +1,7 @@
+#!/bin/sh
+
+make plugin
+
+install_name_tool -change "/usr/local/lib/libgdal.1.dylib" "/Library/Frameworks/GDAL.framework/Versions/Current/GDAL" ogr_FileGDB.dylib
+install_name_tool -change "@rpath/libFileGDBAPI.dylib" "/Library/Frameworks/GDAL.framework/Versions/Current/PlugIns/libFileGDBAPI.dylib" ogr_FileGDB.dylib
+install_name_tool -change "@rpath/libfgdbunixrtl.dylib" "/Library/Frameworks/GDAL.framework/Versions/Current/PlugIns/libfgdbunixrtl.dylib" ogr_FileGDB.dylib
