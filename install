@@ -11,7 +11,7 @@ curl -L -# https://raw.githubusercontent.com/zhm/filegdb-osx/master/lib/libFileG
 echo "Downloading libfgdbunixrtl.dylib"
 curl -L -# https://raw.githubusercontent.com/zhm/filegdb-osx/master/lib/libfgdbunixrtl.dylib > libfgdbunixrtl.dylib
 
-echo "Verifying it works, you should see read/write below"
+echo "Verifying it works, you should see read/write below."
 /Library/Frameworks/GDAL.framework/Versions/Current/Programs/ogr2ogr --formats | grep '"FileGDB" (read/write)'
 
 echo "FileGDB plugin installed."
